@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const cors = require('cors');
 
 const config = require('./config');
-const logger = require('./middlewares/logger');
+const logger = require('./middleware/logger');
 
 const app = express();
 
