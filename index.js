@@ -7,9 +7,9 @@ const logger = require('./middleware/logger');
 
 const app = express();
 
-// Logger
 app.use(logger);
 app.use(cors());
+app.use(express.static('dist'));
 
 app.get('/', (req, res) => {
   res.send('Hi there');
