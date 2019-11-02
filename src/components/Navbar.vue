@@ -8,9 +8,11 @@
       <a
         role="button"
         class="navbar-burger burger"
+        :class="{'is-active': isNavbarOpen}"
         aria-label="menu"
         aria-expanded="false"
         data-target="navbarBasicExample"
+        @click="isNavbarOpen = !isNavbarOpen"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -18,7 +20,7 @@
       </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active': isNavbarOpen}">
       <div class="navbar-start">
         <router-link to="/" class="navbar-item">Home</router-link>
 
@@ -54,25 +56,10 @@
 <script>
 export default {
   name: "Navbar",
-  mounted() {
-    document.addEventListener("DOMContentLoaded", () => {
-      const $navbarBurgers = Array.prototype.slice.call(
-        document.querySelectorAll(".navbar-burger"),
-        0
-      );
-
-      if ($navbarBurgers.length > 0) {
-        $navbarBurgers.forEach(el => {
-          el.addEventListener("click", () => {
-            const target = el.dataset.target;
-            const $target = document.getElementById(target);
-
-            el.classList.toggle("is-active");
-            $target.classList.toggle("is-active");
-          });
-        });
-      }
-    });
+  data() {
+    return {
+      isNavbarOpen: false
+    };
   }
 };
 </script>
