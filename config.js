@@ -1,0 +1,14 @@
+module.exports = {
+  NODE_ENV: process.env.NODE_ENV || 'dev',
+  PORT: process.env.PORT || 5000,
+  SESSION_SECRET: process.env.SESSION_SECRET || '894f40f9ee92e4c4c7ffd56d781f4167',
+  JWT_TOKEN_SECRET: process.env.JWT_TOKEN_SECRET || 'f0156fab3daf3c5228447fda0e191b01',
+
+  MONGODB_URI: process.env.MONGODB_URI || '',
+
+  CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:8080/',
+
+  SENTRY_DSN: process.env.SENTRY_DSN || '',
+
+  REDIS_URL: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
+};
