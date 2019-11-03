@@ -11,7 +11,7 @@
         :class="{'is-active': isNavbarOpen}"
         aria-label="menu"
         aria-expanded="false"
-        data-target="navbarBasicExample"
+        data-target="mainNavbar"
         @click="isNavbarOpen = !isNavbarOpen"
       >
         <span aria-hidden="true"></span>
@@ -20,7 +20,7 @@
       </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active': isNavbarOpen}">
+    <div id="mainNavbar" class="navbar-menu" :class="{'is-active': isNavbarOpen}">
       <div class="navbar-start">
         <router-link to="/" class="navbar-item">Home</router-link>
 
