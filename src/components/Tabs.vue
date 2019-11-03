@@ -3,61 +3,17 @@
     <div class="column">
       <div class="tabs is-boxed is-centered">
         <ul>
-          <li :class="{'is-active': activeTab === 'reddit'}" @click="$emit('changeTab', 'reddit')">
-            <a>
-              <span class="icon is-small">
-                <i class="fab fa-reddit-alien" aria-hidden="true" />
-              </span>
-              <span>Reddit</span>
-            </a>
-          </li>
           <li
-            :class="{'is-active': activeTab === 'facebook'}"
-            @click="$emit('changeTab', 'facebook')"
+            v-for="tab in tabs"
+            :key="tab.name"
+            :class="{'is-active': activeTab === tab.name}"
+            @click="$emit('changeTab', tab.name)"
           >
             <a>
               <span class="icon is-small">
-                <i class="fab fa-facebook-f" aria-hidden="true" />
+                <i :class="`fab ${tab.icon}`" aria-hidden="true" />
               </span>
-              <span>Facebook</span>
-            </a>
-          </li>
-          <li
-            :class="{'is-active': activeTab === 'linkedin'}"
-            @click="$emit('changeTab', 'linkedin')"
-          >
-            <a>
-              <span class="icon is-small">
-                <i class="fab fa-linkedin-in" aria-hidden="true" />
-              </span>
-              <span>LinkedIn</span>
-            </a>
-          </li>
-          <li :class="{'is-active': activeTab === 'quora'}" @click="$emit('changeTab', 'quora')">
-            <a>
-              <span class="icon is-small">
-                <i class="fab fa-quora" aria-hidden="true" />
-              </span>
-              <span>Quora</span>
-            </a>
-          </li>
-          <li
-            :class="{'is-active': activeTab === 'stackoverflow'}"
-            @click="$emit('changeTab', 'stackoverflow')"
-          >
-            <a>
-              <span class="icon is-small">
-                <i class="fab fa-stack-overflow" aria-hidden="true" />
-              </span>
-              <span>StackOverflow</span>
-            </a>
-          </li>
-          <li :class="{'is-active': activeTab === 'medium'}" @click="$emit('changeTab', 'medium')">
-            <a>
-              <span class="icon is-small">
-                <i class="fab fa-medium-m" aria-hidden="true" />
-              </span>
-              <span>Medium</span>
+              <span>{{tab.label}}</span>
             </a>
           </li>
         </ul>
@@ -70,6 +26,42 @@
 export default {
   name: "Tabs",
   props: ["activeTab"],
+  data() {
+    return {
+      tabs: [
+        {
+          name: "reddit",
+          label: "Reddit",
+          icon: "fa-reddit-alien"
+        },
+        {
+          name: "facebook",
+          label: "Facebook",
+          icon: "fa-facebook-f"
+        },
+        {
+          name: "linkedin",
+          label: "LinkedIn",
+          icon: "fa-linkedin-in"
+        },
+        {
+          name: "quora",
+          label: "Quora",
+          icon: "fa-quora"
+        },
+        {
+          name: "stackoverflow",
+          label: "StackOverflow",
+          icon: "fa-stack-overflow"
+        },
+        {
+          name: "medium",
+          label: "Medium",
+          icon: "fa-medium-m"
+        }
+      ]
+    };
+  }
 };
 </script>
 
