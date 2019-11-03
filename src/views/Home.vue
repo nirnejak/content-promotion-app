@@ -23,19 +23,24 @@
             </form>
           </div>
         </div>
+
         <Tabs @changeTab="changeTab" :activeTab="activeTab" />
+        <hr style="margin: 0px;" />
+        <Items :type="activeTab" />
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import Tabs from "../components/Tabs";
 import axios from "axios";
+
+import Tabs from "@/components/Tabs";
+import Items from "@/components/Items";
 
 export default {
   name: "home",
-  components: { Tabs },
+  components: { Tabs, Items },
   data() {
     return {
       activeTab: "reddit",
