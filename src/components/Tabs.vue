@@ -70,9 +70,6 @@
 export default {
   name: "Tabs",
   props: ["activeTab"],
-  created() {
-    console.log(this.activeTab);
-  }
 };
 </script>
 

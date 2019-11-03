@@ -8,17 +8,19 @@
             <h2 class="subtitle">Spam Everybody</h2>
           </div>
           <div class="column">
-            <div class="field has-addons">
-              <div class="control is-expanded is-loading has-icons-left">
-                <input type="text" class="input" placeholder="Link to Blog..." />
-                <span class="icon is-small is-left">
-                  <i class="fas fa-link" />
-                </span>
+            <form @submit="submitHandler">
+              <div class="field has-addons">
+                <div class="control is-expanded is-loading has-icons-left">
+                  <input type="text" class="input" placeholder="Link to Blog..." required />
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-link" />
+                  </span>
+                </div>
+                <div class="control">
+                  <button type="submit" class="button is-primary">Search</button>
+                </div>
               </div>
-              <div class="control">
-                <a class="button is-primary">Search</a>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
         <Tabs @changeTab="changeTab" :activeTab="activeTab" />
@@ -29,6 +31,7 @@
 
 <script>
 import Tabs from "../components/Tabs";
+import axios from "axios";
 
 export default {
   name: "home",
@@ -41,6 +44,18 @@ export default {
   methods: {
     changeTab(tabName) {
       this.activeTab = tabName;
+    },
+    submitHandler(event) {
+      event.preventDefault();
+
+      axios
+        .get("/reddit")
+        .then(res => {
+          console.log(res.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };
