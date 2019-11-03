@@ -38,23 +38,45 @@ export default {
   components: { Tabs },
   data() {
     return {
-      activeTab: "reddit"
+      activeTab: "reddit",
+      data: {},
+      loading: false
     };
+  },
+  watch: {
+    activeTab() {
+      if (!(activeTab in data)) this.fetchData();
+    }
   },
   methods: {
     changeTab(tabName) {
       this.activeTab = tabName;
     },
+    fetchData() {
+      this.loading = true;
+      axios
+        .get(`/${this.activeTab}`)
+        .then.then(res => {
+          console.log(res.data);
+          this.loading = false;
+        })
+        .catch(error => {
+          console.log(error);
+          this.loading = false;
+        });
+    },
     submitHandler(event) {
       event.preventDefault();
 
       axios
-        .get("/reddit")
+        .get("/getKeywords")
         .then(res => {
           console.log(res.data);
+          this.loading = false;
         })
         .catch(error => {
           console.log(error);
+          this.loading = false;
         });
     }
   }
