@@ -10,7 +10,7 @@
           <div class="column">
             <form @submit="submitHandler">
               <div class="field has-addons">
-                <div class="control is-expanded is-loading has-icons-left">
+                <div class="control is-expanded has-icons-left" :class="{'is-loading': loading}">
                   <input type="text" class="input" placeholder="Link to Blog..." required />
                   <span class="icon is-small is-left">
                     <i class="fas fa-link" />

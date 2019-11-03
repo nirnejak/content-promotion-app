@@ -23,15 +23,12 @@
     <div id="mainNavbar" class="navbar-menu" :class="{'is-active': isNavbarOpen}">
       <div class="navbar-start">
         <router-link to="/" class="navbar-item">Home</router-link>
-
         <router-link to="/documentation" class="navbar-item">Documentation</router-link>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">More</a>
-
           <div class="navbar-dropdown">
             <router-link to="/about" class="navbar-item">About</router-link>
-            <router-link to="/jobs" class="navbar-item">Jobs</router-link>
             <router-link to="/contact" class="navbar-item">Contact</router-link>
             <hr class="navbar-divider" />
             <router-link to="/report" class="navbar-item">Report an issue</router-link>
