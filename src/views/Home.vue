@@ -39,6 +39,7 @@ export default {
   data() {
     return {
       activeTab: "reddit",
+      keywords: [],
       data: {},
       loading: false
     };
@@ -58,6 +59,7 @@ export default {
         .get(`/${this.activeTab}`)
         .then.then(res => {
           console.log(res.data);
+          this.data[activeTab] = res.data;
           this.loading = false;
         })
         .catch(error => {
@@ -72,6 +74,7 @@ export default {
         .get("/getKeywords")
         .then(res => {
           console.log(res.data);
+          this.keywords = res.data;
           this.loading = false;
         })
         .catch(error => {
