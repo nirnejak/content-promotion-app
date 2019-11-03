@@ -21,62 +21,27 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="column">
-            <div class="tabs is-boxed is-centered">
-              <ul>
-                <li class="is-active">
-                  <a>
-                    <span class="icon is-small">
-                      <i class="fab fa-reddit-alien" aria-hidden="true" />
-                    </span>
-                    <span>Reddit</span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="icon is-small">
-                      <i class="fab fa-facebook-f" aria-hidden="true" />
-                    </span>
-                    <span>Facebook</span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="icon is-small">
-                      <i class="fab fa-quora" aria-hidden="true" />
-                    </span>
-                    <span>Quora</span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="icon is-small">
-                      <i class="fab fa-stack-overflow" aria-hidden="true" />
-                    </span>
-                    <span>StackOverflow</span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="icon is-small">
-                      <i class="fab fa-medium-m" aria-hidden="true" />
-                    </span>
-                    <span>Medium</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <Tabs @changeTab="changeTab" :activeTab="activeTab" />
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import Tabs from "../components/Tabs";
+
 export default {
   name: "home",
-  components: {}
+  components: { Tabs },
+  data() {
+    return {
+      activeTab: "reddit"
+    };
+  },
+  methods: {
+    changeTab(tabName) {
+      this.activeTab = tabName;
+    }
+  }
 };
 </script>
