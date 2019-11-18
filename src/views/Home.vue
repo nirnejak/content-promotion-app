@@ -2,7 +2,7 @@
   <section class="hero is-fullheight-with-navbar">
     <div class="hero-body">
       <div class="container">
-        <div class="row">
+        <div class="columns">
           <div class="column">
             <h1 class="title">Project Spam</h1>
             <h2 class="subtitle">Spam Everybody</h2>
